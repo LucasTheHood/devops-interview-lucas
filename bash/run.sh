@@ -6,3 +6,4 @@ if [ $# -eq 0 ]; then
 fi
 
 echo "Arguements->"  $@
+exit 0
