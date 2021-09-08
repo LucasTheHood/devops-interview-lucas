@@ -5,19 +5,20 @@ Outputs:
   BucketARN: 
     Value: Bucket.Arn
 Parameters: 
-  S3BucketName: 
-    Default: Interview~bucket
+  BucketName: 
+    Default: Interviewbucket
     Type: String
+    AllowedPattern: "^[a-zA-Z0-9]\\S*$"
 Resources: 
-  Bucket: 
+  Bucket:
+    Type: "AWS::S3::Bucket"
     Properties: 
       AccessControl: Private
       BucketName: S3BucketName
       DeletionPolicy: Retain
+      UpdateReplacePolicy: Retain
       PublicAccessBlockConfiguration: 
         BlockPublicAcls: true
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-      UpdateReplacePolicy: Retain
-    Type: "AWS::S3::Bucket"
